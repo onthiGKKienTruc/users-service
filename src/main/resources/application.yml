@@ -3,9 +3,9 @@ resilience4j:
     instances:
       # RateLimiter object used in RateLimitingService.basicExample()
       basicExample:
-        limitForPeriod: 5
-        limitRefreshPeriod: 3s
-        timeoutDuration: 1s
+        limitForPeriod: 2
+        limitRefreshPeriod: 10s
+        timeoutDuration: 10s
 
 #      # RateLimiter object used in RateLimitingService.timeoutExample()
 #      timeoutExample:
