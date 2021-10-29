@@ -4,6 +4,7 @@ import com.example.users.VO.Order;
 import com.example.users.VO.ResponseTemplateVO;
 import com.example.users.entity.User;
 import com.example.users.repository.UserRepository;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -19,6 +20,7 @@ public class UserService {
     public User saveUser(User user){
         return userRepository.save(user);
     }
+    @RateLimiter(name="basicExample")
     public ResponseTemplateVO getUserWithOrder(Long userId){
         ResponseTemplateVO vo = new ResponseTemplateVO();
         User user = userRepository.findById(userId).get();
